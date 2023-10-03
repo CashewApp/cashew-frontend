@@ -1,0 +1,11 @@
+<View className={`text-white ${errorPassword !== ""?"border-red-500" : "border-orange-500"} border-2 ml-5 mr-5 rounded-full p-4 bg-black/50 flex-row`}>
+          <TextInput value={password} onChangeText={(text) => { setPassword(text) }} secureTextEntry={hidePass} 
+          className="text-white mr-4 w-72" style={{fontSize: 18}}>
+          </TextInput>
+          <TouchableOpacity onPress={ () => setHidePass(!hidePass)}>
+              { hidePass ?
+              <Ionicons name='eye' color="#A9A9A9" size={26} ></Ionicons>:
+              <Ionicons name='eye-off' color="#A9A9A9" size={26} ></Ionicons>
+              }
+          </TouchableOpacity>
+        </View>
