@@ -7,12 +7,12 @@ import Toptabs from '../../components/Toptabs';
 export default function Principal({navigation}) {
 
     return (
-        <View className="flex h-screen bg-white">
+        <View className="flex h-full bg-white">
             <View className="flex justify-center items-start mt-20  ">
                 <Text className="text-3xl font-extrabold pl-5">Mais vendidos</Text>
             </View>
             <View className="">
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row ">
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row  ">
                     <Itemcard name="Coxinha" price="R$5,50"></Itemcard>
                     <Itemcard name="Coxinha" price="R$5,50"></Itemcard>
                     <Itemcard name="Coxinha" price="R$5,50"></Itemcard>

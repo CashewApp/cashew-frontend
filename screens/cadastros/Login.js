@@ -1,4 +1,4 @@
-import { Text, View, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, ImageBackground, TouchableOpacity, TextInput, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import Principal from '../menus/Principal';
 
 
@@ -17,10 +17,11 @@ export default function Login({navigation}) {
     }
     
     return (
-      
-      <ImageBackground source={require('../../assets/wppcaju3.jpg')} className="flex h-screen">
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <ImageBackground source={require('../../assets/wppcaju3.jpg')} className="flex h-full">
 
-        <View className="flex justify-center items-center mt-44">
+       
+        <View className="flex justify-center items-center mt-40">
           <Text className="text-white text-4xl font-extrabold">
             Entre na sua conta
           </Text>
@@ -34,7 +35,7 @@ export default function Login({navigation}) {
         <TouchableOpacity className="flex items-end">
           <Text className="text-white font-medium text-xs mr-10 mt-1"> Esquecim minha senha</Text>
         </TouchableOpacity>
-        
+
         
         <TouchableOpacity onPress={Principal} className="flex justify-center items-center border-1 pt-4 pb-4 pl-16 pr-16 mt-44 ml-5 mr-5  bg-orange-500 text-center rounded-full">
           <Text className="text-white text-lg font-bold">Entrar na sua conta </Text>
@@ -44,7 +45,7 @@ export default function Login({navigation}) {
           </TouchableOpacity>
         
       </ImageBackground>
-  
+      </TouchableWithoutFeedback>
       
     );
   }

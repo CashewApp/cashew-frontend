@@ -9,6 +9,8 @@ export default function Salgados() {
         <ItemMenu></ItemMenu>
         <ItemMenu></ItemMenu>
         <ItemMenu></ItemMenu>
+        <ItemMenu></ItemMenu>
+        <ItemMenu></ItemMenu>
       </ScrollView>
     </View>
   )

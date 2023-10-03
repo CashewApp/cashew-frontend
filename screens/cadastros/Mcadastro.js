@@ -20,7 +20,7 @@ export default function Mcadastro({navigation}) {
 
     return (
       
-      <ImageBackground source={require('../../assets/wppcaju.jpg')} className="flex h-screen">
+      <ImageBackground source={require('../../assets/wppcaju.jpg')} className="flex h-full">
 
         <View className="flex justify-center items-center mt-28">
           <Text className="text-white text-center text-4xl font-extrabold ml-4 mr-4">

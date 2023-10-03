@@ -1,9 +1,13 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 export default function ItemMenu() {
+
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity className="flex-row flex ml-3 mt-3 mb-3 ">
+    <TouchableOpacity className="flex-row flex ml-3 mt-3 mb-3 " onPress={() => {navigation.navigate('Item')}}>
         <View className="basis-1/2 ">
             <Text className="font-semibold">Pao de Queijo</Text>
             <Text className="text-xs">Enroladinho de queijo com presunto</Text>

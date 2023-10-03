@@ -2,8 +2,8 @@ import { Text, View, ImageBackground, TouchableOpacity, TextInput } from 'react-
 
 export default function Perfil() {
     return (
-        <View className="flex justify-center items-center h-screen">
-            <Text className=" font-bold text-3xl w-full text-center">Indiano Tesudo</Text>
+        <View className="flex bg-white h-full">
+            <Text className=" font-bold text-3xl w-full mt-20 pl-5 ">Meu Perfil</Text>
         </View>
     );
 }
