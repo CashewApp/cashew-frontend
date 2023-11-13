@@ -7,8 +7,8 @@ export default function Itemcard({name, price}) {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity  className="m-5 mr-0" onPress={() => {navigation.navigate('Item')}} >
-      <View className="rounded-xl bg-white shadow-md ">
+    <TouchableOpacity activeOpacity={1.0} className="m-5 mr-0" onPress={() => {navigation.navigate('Item')}} >
+      <View className="rounded-xl bg-white shadow shadow-black/50 ">
         <Image className="flex h-36 w-48 rounded-t-xl" source={require('../assets/coxinha.jpeg')}></Image>
         <Text className="p-2 text-xl font-bold">{name}</Text>
       </View>

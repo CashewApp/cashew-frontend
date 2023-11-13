@@ -1,4 +1,4 @@
-import { Text, View, ImageBackground, TouchableOpacity, SafeAreaView } from 'react-native';
+import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import React from 'react';
 
 
@@ -20,6 +20,7 @@ export default function Inicio({navigation}) {
   return (
     
     <ImageBackground className="flex h-full " source={require('../../assets/wppcaju.jpg')}   >
+      
       <View className="flex flex-col justify-center items-start  mt-52 ml-8 ">
         <Text className="text-white text-lg font-bold  ">Compre <Text className="text-orange-500"> rapido e sem filas</Text></Text>
         <Text className="text-white text-4xl font-extrabold mt-2 ">Retire seus pedidos </Text>

@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
-import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { Text, View, ImageBackground, TouchableOpacity, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Sacola from './menus/Sacola';
@@ -22,9 +22,10 @@ function StackBuscar (){
 
 export default function Botao(){
   return(
+    
     <Tab.Navigator 
-    screenOptions={{headerShown: false, tabBarActiveTintColor:'#ea580c', tabBarInactiveTintColor:'gray', tabBarStyle:{height:80,}}} 
-    tabBarOptions={{ showLabel: false,  }} >
+    screenOptions={{headerShown: false, tabBarActiveTintColor:'#ea580c', tabBarInactiveTintColor:'gray', tabBarStyle:{height: Platform.OS === 'ios' ? 100:80}}} 
+    tabBarOptions={{ showLabel: false, tabBarActiveTintColor:'#ea580c'}} >
       <Tab.Screen name="Inicio" component={Principal} options={{
         tabBarIcon: ({color, focused}) => {
           if(focused){

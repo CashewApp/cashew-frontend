@@ -9,6 +9,7 @@ import Mcadastro from './screens/cadastros/Mcadastro';
 import Botao from './screens/Botao';
 import Item from './components/Item';
 import StackAPP from './screens/StackAPP';
+import Senha from './screens/cadastros/Senha';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ function StackCadastro() {
       <Stack.Screen name="Cadastro" component={Cadastro} />
       <Stack.Screen name="Mcadastro" component={Mcadastro} />
       <Stack.Screen name="Principal" component={StackAPP} />
+      <Stack.Screen name="Senha" component={Senha} />
     </Stack.Navigator>
   );
 }

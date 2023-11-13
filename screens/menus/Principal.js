@@ -11,7 +11,7 @@ export default function Principal({navigation}) {
             <View className="flex justify-center items-start mt-20  ">
                 <Text className="text-3xl font-extrabold pl-5">Mais vendidos</Text>
             </View>
-            <View className="">
+            <View className="-mb-5">
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row  ">
                     <Itemcard name="Coxinha" price="R$5,50"></Itemcard>
                     <Itemcard name="Coxinha" price="R$5,50"></Itemcard>
