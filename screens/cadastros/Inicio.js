@@ -2,7 +2,6 @@ import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import React from 'react';
 
 
-
 export default function Inicio({navigation}) {
 
   const Login = () =>{
@@ -13,7 +12,7 @@ export default function Inicio({navigation}) {
 
   const Cadastro = () =>{
     navigation.reset({
-      routes: [{name: "Cadastro"}]
+      routes: [{name: "Principal"}]
     })
   }
 

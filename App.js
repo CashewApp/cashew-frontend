@@ -10,12 +10,14 @@ import Botao from './screens/Botao';
 import Item from './components/Item';
 import StackAPP from './screens/StackAPP';
 import Senha from './screens/cadastros/Senha';
+import Loading from './screens/cadastros/Loading';
 
 const Stack = createStackNavigator();
 
 function StackCadastro() {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}} >
+      <Stack.Screen name="Loading" component={Loading} />
       <Stack.Screen name="Inicio" component={Inicio} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Cadastro" component={Cadastro} />

@@ -13,10 +13,10 @@ export default function Principal({navigation}) {
             </View>
             <View className="-mb-5">
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row  ">
-                    <Itemcard name="Coxinha" price="R$5,50"></Itemcard>
-                    <Itemcard name="Coxinha" price="R$5,50"></Itemcard>
-                    <Itemcard name="Coxinha" price="R$5,50"></Itemcard>
-                    <Itemcard name="Coxinha" price="R$5,50"></Itemcard>    
+                    <Itemcard name="Coxinha de frango" price="R$5,50"></Itemcard>
+                    <Itemcard name="Coca Cola" price="R$4,99"></Itemcard>
+                    <Itemcard name="Bala 7Belo" price="R$0,50"></Itemcard>
+                    <Itemcard name="Guarana Antarctica" price="R$4,99"></Itemcard>    
                 </ScrollView>
             </View>
             <Toptabs></Toptabs>

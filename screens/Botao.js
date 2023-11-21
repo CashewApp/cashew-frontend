@@ -8,6 +8,7 @@ import Sacola from './menus/Sacola';
 import Principal from './menus/Principal';
 import Perfil from './menus/Perfil';
 import Pedidos from './menus/Pedidos';
+import Config from './perfil/Config';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -16,6 +17,15 @@ function StackBuscar (){
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="StackBuscar" component={Sacola} />
+    </Stack.Navigator>
+  );
+}
+
+function StackPerfil (){
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="StackPerfil" component={Perfil} />
+      <Stack.Screen name="Configuracoes" component={Config} />
     </Stack.Navigator>
   );
 }
@@ -71,7 +81,7 @@ export default function Botao(){
           
         }
       }} />
-      <Tab.Screen name="Perfil" component={Perfil} options={{
+      <Tab.Screen name="Perfil" component={StackPerfil} options={{
         tabBarIcon: ({color, focused}) => {
           if(focused){
             return <View className="flex justify-center items-center">

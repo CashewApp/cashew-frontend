@@ -4,7 +4,8 @@ import { Entypo } from '@expo/vector-icons';
 import PerfilCard from '../../components/PerfilCard';
 
 
-export default function Perfil() {
+export default function Perfil({navigation}) {
+
     return (
         <View className="flex bg-white h-full static">
             <Text className=" font-bold text-3xl w-full mt-20 pl-5 ">Meu Perfil</Text>

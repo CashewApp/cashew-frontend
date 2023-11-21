@@ -1,0 +1,37 @@
+useEffect(() => {
+      const singInToken = async () => {
+        const token = await AsyncStorage.getItem("token");
+        if (token) {
+          try { 
+            const data = await axios.get(`${api_url}`, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              }
+            });
+            navigation.reset({
+              routes: [{ name: "Principal"}]
+            })
+          }
+          catch (error){
+            navigation.reset({
+              routes: [{ name: "Inicio"}]
+            })
+          }
+        }
+        else {
+          
+        }
+      }
+      singInToken()
+    },[])
+
+
+    useEffect (() => {
+        const timer = setTimeout(() => {
+          navigation.reset({
+            routes: [{ name: "Inicio"}]
+          })
+        },4000)
+        return () => clearTimeout(timer);
+      },[])
+  

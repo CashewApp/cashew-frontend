@@ -2,6 +2,7 @@ import { Text, View, ImageBackground, TouchableOpacity, TextInput, TouchableWith
 import { useState } from 'react';
 import axios from 'axios';
 import { Ionicons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function Cadastro({navigation}) {
@@ -29,11 +30,15 @@ export default function Cadastro({navigation}) {
 
       if (response.status === 201) {
         navigation.reset({
-          routes: [{ name: "Principal"}]
+          routes: [{ name: "Mcadastro"}]
         })
+        await AsyncStorage.setItem("token", response.data.access_token)
+
+        const token = await AsyncStorage.getItem("token")
+        console.log(token)
       }
       else if (response.status === 200) {
-        setErrorEmail('Email ja cadastrado')
+        setErrorEmail('Email ja foi cadastrado')
       } 
     }
     catch (error){
@@ -80,7 +85,7 @@ export default function Cadastro({navigation}) {
                 <View className=" h-[620px] flex justify-center mt-36">
 
                     <View className="flex justify-center items-center ">
-                    <Text className="text-white text-4xl font-extrabold">Crie sua conta</Text>
+                      <Text className="text-white text-4xl font-extrabold">Crie sua conta</Text>
                     </View>
 
         

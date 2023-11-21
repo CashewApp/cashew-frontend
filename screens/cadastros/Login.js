@@ -1,7 +1,8 @@
 import { Text, View, ImageBackground, TouchableOpacity, TextInput, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 
 export default function Login({navigation}) {
@@ -15,17 +16,43 @@ export default function Login({navigation}) {
 
     const [hidePass, setHidePass]=useState(true);
 
+    console.log(api_url)
+    const Login = async () =>{
+      try {
+        const response = await axios.post(`${api_url}/auth/user/login`,{
+          email,
+          password,
+        });
+
+        if (response.status === 200){
+            navigation.reset({
+              routes: [{ name: "Principal"}]
+            })
+            await AsyncStorage.setItem("token", response.data.access_token)
+
+            const token = await AsyncStorage.getItem("token")
+        }
+      }
+      catch (error){
+        if (error.response) {
+          
+          if (error.response.status === 400) {
+            setErrorEmail('Email invalido')
+          }
+
+          else if (error.response.status === 401) {
+            setErrorPassword('Senha incorreta, tente novamente')
+          }
+        }
+      }
+    }
+
     const Cadastro = () =>{
       navigation.reset({
         routes: [{name: "Cadastro"}]
       })
     }
 
-    const Principal = ()=>{
-      navigation.reset({
-        routes: [{name: "Principal"}]
-      })
-    }
 
     const Senha = ()=>{
       navigation.reset({
@@ -71,7 +98,7 @@ export default function Login({navigation}) {
             </TouchableOpacity>
 
         
-            <TouchableOpacity activeOpacity={0.8} onPress={Principal} className="flex justify-center items-center border-1 pt-4 pb-4 pl-16 pr-16 mt-44 ml-5 mr-5  bg-orange-500 text-center rounded-full">
+            <TouchableOpacity activeOpacity={0.8} onPress={Login} className="flex justify-center items-center border-1 pt-4 pb-4 pl-16 pr-16 mt-44 ml-5 mr-5  bg-orange-500 text-center rounded-full">
               <Text className="text-white text-lg font-bold">Entrar na sua conta </Text>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={0.8} onPress={Cadastro} className="flex items-center">
