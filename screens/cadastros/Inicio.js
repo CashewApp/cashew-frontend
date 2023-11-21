@@ -12,7 +12,7 @@ export default function Inicio({navigation}) {
 
   const Cadastro = () =>{
     navigation.reset({
-      routes: [{name: "Principal"}]
+      routes: [{name: "Cadastro"}]
     })
   }
 
