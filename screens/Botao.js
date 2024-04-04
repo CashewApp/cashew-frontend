@@ -9,6 +9,13 @@ import Principal from './menus/Principal';
 import Perfil from './menus/Perfil';
 import Pedidos from './menus/Pedidos';
 import Config from './perfil/Config';
+import Pagamento from './perfil/Pagamento';
+import Notificacoes from './perfil/Notificacoes';
+import Ajuda from './perfil/Ajuda';
+import Seguranca from './perfil/Seguranca';
+import Dados from './perfil/Dados';
+import Itemtwo from '../components/Itemtwo';
+
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -25,7 +32,22 @@ function StackPerfil (){
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="StackPerfil" component={Perfil} />
-      <Stack.Screen name="Configuracoes" component={Config} />
+      <Stack.Screen name="Config" component={Config} />
+      <Stack.Screen name="Pagamento" component={Pagamento} />
+      <Stack.Screen name="Notificacoes" component={Notificacoes} />
+      <Stack.Screen name="Ajuda" component={Ajuda} />
+      <Stack.Screen name="Seguranca" component={Seguranca} />
+      <Stack.Screen name="Dados" component={Dados} />
+      <Stack.Screen name="Itemtwo" component={Itemtwo} />
+    </Stack.Navigator>
+  );
+}
+
+function StackPrincipal(){
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="StackPrincipal" component={Principal} />
+      <Stack.Screen name="Itemtwo" component={Itemtwo} />
     </Stack.Navigator>
   );
 }
@@ -36,7 +58,7 @@ export default function Botao(){
     <Tab.Navigator 
     screenOptions={{headerShown: false, tabBarActiveTintColor:'#ea580c', tabBarInactiveTintColor:'gray', tabBarStyle:{height: Platform.OS === 'ios' ? 100:80}}} 
     tabBarOptions={{ showLabel: false, tabBarActiveTintColor:'#ea580c'}} >
-      <Tab.Screen name="Inicio" component={Principal} options={{
+      <Tab.Screen name="Inicio" component={StackPrincipal} options={{
         tabBarIcon: ({color, focused}) => {
           if(focused){
             return <View className="flex justify-center items-center">

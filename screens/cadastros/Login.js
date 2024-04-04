@@ -49,7 +49,7 @@ export default function Login({navigation}) {
 
     const Cadastro = () =>{
       navigation.reset({
-        routes: [{name: "Cadastro"}]
+        routes: [{name: "Principal"}]
       })
     }
 
@@ -64,8 +64,8 @@ export default function Login({navigation}) {
     return (
       
       <ImageBackground source={require('../../assets/wppcaju2.jpg')} className="flex h-full">
-      <KeyboardAvoidingView  className=" flex h-screen">
-        
+      <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={100}  className=" flex h-screen">
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View className="flex justify-center">
           <View className=" h-[620px] flex justify-center mt-36">
 
@@ -107,7 +107,7 @@ export default function Login({navigation}) {
 
           </View>
         </View>
-        
+        </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
       </ImageBackground>
       
