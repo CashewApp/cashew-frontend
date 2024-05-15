@@ -10,7 +10,7 @@ export default function Senha() {
   const [errorEmail, setErrorEmail]=useState('')
 
   return (
-    <ImageBackground source={require('../../assets/wppcaju2.jpg')} className="flex h-full">
+    <ImageBackground source={require('../../assets/blur.jpg')} className="flex h-full">
       <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={100} className=" flex h-screen">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 

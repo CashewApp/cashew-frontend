@@ -63,7 +63,7 @@ export default function Mcadastro({navigation}) {
 
               
 
-              <TouchableOpacity activeOpacity={0.8} onPress={BuscarFacul} className="flex justify-center items-center border-1 pt-4 pb-4 pl-16 pr-16 mt-16 ml-5 mr-5  bg-orange-500 text-center rounded-full">
+              <TouchableOpacity activeOpacity={0.8}  className="flex justify-center items-center border-1 pt-4 pb-4 pl-16 pr-16 mt-16 ml-5 mr-5  bg-orange-500 text-center rounded-full">
                 <Text className="text-white text-lg font-bold">Comecar</Text>
               </TouchableOpacity>
         

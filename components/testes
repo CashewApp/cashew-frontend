@@ -117,3 +117,25 @@ bebidas:{
         }
     ]
 }
+
+            <View className="mt-12 flex mx-5 ">
+                <TouchableOpacity activeOpacity={0.8} className="flex justify-center items-start">
+                    <Text className="bg-orange-500 rounded-full px-2 text-white font-medium">Cantina 2</Text>
+                </TouchableOpacity>
+            </View>
+
+
+const [cantinas, setCantinas] = useState('Cantina 1')
+
+    const [cantinaList, setCantinaList] = useState(bancod)
+    const setCantinaFilter = cantina=> {
+        if (cantina !== 'Cantina 1') {
+            setCantinaList([...bancod.filter(e => e.cantina === cantina)])
+        } else {
+            setCantinaList (bancod)
+        }
+        setCantinas (cantina)
+    }
+
+    const [produtoDestaque, setProdutoDestaque] = useState([])
+    const [produtoList, setProdutoList] = useState(produto)

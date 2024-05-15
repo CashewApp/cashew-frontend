@@ -11,7 +11,7 @@ export default function Notifica() {
             <Text className="text-orange-500 font-bold text-xl">Nova Notificação</Text>
             <MaterialCommunityIcons  name="exclamation-thick" size={24} color="orange" />
             <View>
-                <Text className="ml-7 text-black-500 font-bold text-md">12:47</Text>
+                <Text className="ml-7 text-zinc-300 font-bold text-md">12:47</Text>
             </View>
             
         </View>
@@ -23,8 +23,8 @@ export default function Notifica() {
        
         <View className="flex flex-row items-center justify-between">
             <View>
-                <Text className="font-semibold text-md">Apenas hoje salgado + refri</Text>
-                <Text className="font-semibold text-md">por apenas R$ 10,00</Text>
+                <Text className="font-medium text-md text-zinc-400">Apenas hoje salgado + refri</Text>
+                <Text className="font-medium text-md text-zinc-400">por apenas R$ 10,00</Text>
             </View>
 
             <View>

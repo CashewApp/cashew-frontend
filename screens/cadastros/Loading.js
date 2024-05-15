@@ -21,7 +21,7 @@ export default function Loading({navigation}) {
 
   return (
     <View className="h-full bg-orange-500 flex justify-center items-center">
-      <Image source={require('../../assets/cashew.png')} className="rotate-45  object-center h-36 w-60"></Image>
+      <Image source={require('../../assets/cashew.png')} className="rotate-[60deg] object-center h-36 w-60"></Image>
     </View>
   )
 }

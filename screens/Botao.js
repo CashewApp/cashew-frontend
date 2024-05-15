@@ -14,16 +14,17 @@ import Notificacoes from './perfil/Notificacoes';
 import Ajuda from './perfil/Ajuda';
 import Seguranca from './perfil/Seguranca';
 import Dados from './perfil/Dados';
-import Itemtwo from '../components/Itemtwo';
 
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-function StackBuscar (){
+function StackBuscar ({cart, setCart}){
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="StackBuscar" component={Sacola} />
+      <Stack.Screen name="StackBuscar">
+        {(props) => <Sacola {...props} cart={cart} setCart={setCart} />}
+      </Stack.Screen>
     </Stack.Navigator>
   );
 }
@@ -38,7 +39,6 @@ function StackPerfil (){
       <Stack.Screen name="Ajuda" component={Ajuda} />
       <Stack.Screen name="Seguranca" component={Seguranca} />
       <Stack.Screen name="Dados" component={Dados} />
-      <Stack.Screen name="Itemtwo" component={Itemtwo} />
     </Stack.Navigator>
   );
 }
@@ -47,12 +47,12 @@ function StackPrincipal(){
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="StackPrincipal" component={Principal} />
-      <Stack.Screen name="Itemtwo" component={Itemtwo} />
     </Stack.Navigator>
   );
 }
 
-export default function Botao(){
+export default function Botao({cart, setCart}){
+
   return(
     
     <Tab.Navigator 
@@ -73,7 +73,7 @@ export default function Botao(){
           
         }
       }}/>
-      <Tab.Screen name="Buscar" component={StackBuscar} options={{
+      <Tab.Screen name="Buscar" options={{
         tabBarIcon: ({color, focused}) => {
           if(focused){
             return <View className="flex justify-center items-center">
@@ -87,7 +87,9 @@ export default function Botao(){
         </View> 
           
         }
-      }} />
+      }}>
+        {({ navigation }) => <StackBuscar navigation={navigation} cart={cart} setCart={setCart} />}
+      </Tab.Screen>
       <Tab.Screen name="Pedidos" component={Pedidos} options={{
         tabBarIcon: ({color, focused}) => {
           if(focused){

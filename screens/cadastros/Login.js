@@ -63,7 +63,7 @@ export default function Login({navigation}) {
     
     return (
       
-      <ImageBackground source={require('../../assets/wppcaju2.jpg')} className="flex h-full">
+      <ImageBackground source={require('../../assets/shadow.jpg')} className="flex h-full">
       <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={100}  className=" flex h-screen">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View className="flex justify-center">

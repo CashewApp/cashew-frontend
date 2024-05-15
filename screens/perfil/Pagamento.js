@@ -17,12 +17,12 @@ continuar arummar os botao
     <View className="flex flex-col static h-full items-center bg-white" >
       
 
-      <View className="border-1 flex-col items-center w-full" >
+      <View className=" flex-col items-center w-full" >
 
         <Text className="mt-20 mb-10 font-bold text-2xl">Formas de Pagamento</Text>
 
         <View className="flex justify-center w-80 ">
-                    <TouchableOpacity activeOpacity={0.5} className="py-7 px-5 rounded-lg border-neutral-300 border-2 flex  items-center justify-between flex-row">
+                    <TouchableOpacity activeOpacity={0.5} className="py-7 px-5 rounded-lg border-zinc-300 border flex  items-center justify-between flex-row">
                         <View className=" flex-row items-center justify-center">
                             <Image source={require('../../assets/pix.png')} className="h-6 w-6"></Image>
                             <Text className="font-normal text-md text-center ml-4">PIX</Text>
@@ -32,7 +32,7 @@ continuar arummar os botao
         </View>
 
         <View className="flex justify-center w-80 ">
-                    <TouchableOpacity activeOpacity={0.5} className="py-7 px-5 my-4 rounded-lg border-neutral-300 border-2 flex  items-center justify-between flex-row">
+                    <TouchableOpacity activeOpacity={0.5} className="py-7 px-5 my-4 rounded-lg border-zinc-300 border flex  items-center justify-between flex-row">
                         <View className=" flex-row items-center justify-center">
                             <FontAwesome5 name="money-bill-wave" size={24} color="black" />
                             <Text className="font-normal text-md text-center ml-4">Dinheiro</Text>
@@ -42,7 +42,7 @@ continuar arummar os botao
         </View>
 
         <View className="flex justify-center w-80 ">
-                    <TouchableOpacity activeOpacity={0.5} className="py-5 px-5 rounded-lg border-neutral-300 border-2 flex  items-center justify-between flex-row">
+                    <TouchableOpacity activeOpacity={0.5} className="py-5 px-5 rounded-lg border-zinc-300 border flex  items-center justify-between flex-row">
                         <View className=" flex-row items-center justify-center">
                             <FontAwesome name="cc-mastercard" size={24} color="black" />
 
@@ -59,7 +59,7 @@ continuar arummar os botao
         </View>
 
         <View className="flex justify-center w-80 ">
-                    <TouchableOpacity activeOpacity={0.5} className="py-5 px-5 my-4 rounded-lg border-neutral-300 border-2 flex  items-center justify-between flex-row">
+                    <TouchableOpacity activeOpacity={0.5} className="py-5 px-5 my-4 rounded-lg border-zinc-300 border flex  items-center justify-between flex-row">
                         <View className=" flex-row items-center justify-center">
                             <FontAwesome name="cc-mastercard" size={24} color="black" />
 
@@ -77,7 +77,7 @@ continuar arummar os botao
         </View>
 
         <TouchableOpacity className="flex shadow-md items-center w-80 rounded-md py-4 my-10 bg-orange-500">
-          <Text className="flex items-center justify-center text-white text-xl">Adicionar Novo Cartão</Text>
+          <Text className="flex items-center justify-center text-white text-xl font-bold">Adicionar Novo Cartão</Text>
 
         </TouchableOpacity>
         
