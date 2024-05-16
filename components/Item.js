@@ -3,6 +3,7 @@ import React,{useEffect} from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
+import Toast from 'react-native-toast-message';
 
 export default function Item({navigation, route, cart, setCart}) {
 
@@ -18,6 +19,12 @@ export default function Item({navigation, route, cart, setCart}) {
         price: produto?.price
       }
     ]))
+    Toast.show({
+      type: 'success',
+      text1: 'Adicionado',
+      text2: 'Seu produto foi adicionado ao carrinho',
+      position:'bottom'
+    });
     Navigation.goBack()
   }
 

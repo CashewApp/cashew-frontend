@@ -1,6 +1,7 @@
-import { View, Text, TouchableOpacity} from 'react-native'
+import { View, Text, TouchableOpacity, Image} from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'; 
+import USCS from '../assets/uscs.png'
 
 export default function PerfilCard() {
   return (
@@ -11,9 +12,6 @@ export default function PerfilCard() {
             </TouchableOpacity>
             <Text className="font-bold text-xl text-center">Nome</Text>     
         </View>
-        <TouchableOpacity activeOpacity={0.5} className="p-6">
-            <Text className="text-center text-sm text-orange-500">Editar</Text>
-        </TouchableOpacity>
     </View>
   )
 }

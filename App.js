@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import Toast, { BaseToast, ErrorToast } from 'react-native-toast-message';
 
 import Inicio from './screens/cadastros/Inicio';
 import Login from './screens/cadastros/Login';
@@ -13,9 +14,38 @@ import Senha from './screens/cadastros/Senha';
 import Loading from './screens/cadastros/Loading';
 
 const Stack = createStackNavigator();
+const toastConfig = {
+  success: (props) => (
+    <BaseToast
+      {...props}
+      style={{ borderTopColor: '#f97316', borderTopWidth: 5, borderLeftWidth:0 }}
+      contentContainerStyle={{ paddingHorizontal: 15 }}
+      text1Style={{
+        fontSize: 17,
+        fontWeight: '500'
+      }}
+      text2Style={{
+        fontSize: 16
+      }}
+    />
+  ),
+  error: (props) => (
+    <ErrorToast
+      {...props}
+      text1Style={{
+        fontSize: 17
+      }}
+      text2Style={{
+        fontSize: 15
+      }}
+    />
+  ),
+} 
+
 
 function StackCadastro() {
   return (
+    <>
     <Stack.Navigator screenOptions={{headerShown: false}} >
       <Stack.Screen name="Loading" component={Loading} />
       <Stack.Screen name="Inicio" component={Inicio} />
@@ -25,6 +55,8 @@ function StackCadastro() {
       <Stack.Screen name="Principal" component={StackAPP} />
       <Stack.Screen name="Senha" component={Senha} />
     </Stack.Navigator>
+    <Toast config={toastConfig} />
+    </>
   );
 }
 

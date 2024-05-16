@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import Botao from './Botao';
 import Item from '../components/Item';
+import Accept from '../components/Accept';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,9 @@ export default function StackAPP() {
       </Stack.Screen>
       <Stack.Screen name="Item">
         {(props) => <Item {...props} cart={cart} setCart={setCart} />}
+      </Stack.Screen>
+      <Stack.Screen name="Accept">
+        {(props) => <Accept {...props} cart={cart} setCart={setCart} />}
       </Stack.Screen>
     </Stack.Navigator>
   )
