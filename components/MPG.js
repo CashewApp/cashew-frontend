@@ -8,25 +8,11 @@ import {
   Button,
   Image,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
-import { FontAwesome5 } from "@expo/vector-icons";
-import Cartao from "./Cartao";
 
-export default function Pagamentos() {
-  const Navigation = useNavigation();
-
-  const telaCartao = () => {
-    Navigation.navigate("Cartao");
-  };
+export default function MPG() {
   return (
-    <View className="flex flex-col static h-full items-center bg-white">
+    <View className="flex flex-col static  items-center bg-white">
       <View className=" flex-col items-center w-full">
-        <Text className="mt-20 mb-10 font-bold text-2xl">
-          Formas de Pagamento
-        </Text>
-
         <View className="flex justify-center w-80 ">
           <TouchableOpacity
             activeOpacity={0.5}
@@ -34,7 +20,7 @@ export default function Pagamentos() {
           >
             <View className=" flex-row items-center justify-center">
               <Image
-                source={require("../../assets/pix.png")}
+                source={require("../assets/pix.png")}
                 className="h-6 w-6"
               ></Image>
               <Text className="font-medium text-md text-center ml-4">PIX</Text>
@@ -45,7 +31,6 @@ export default function Pagamentos() {
 
         <TouchableOpacity
           activeOpacity={0.8}
-          onPress={telaCartao}
           className="flex shadow-md items-center w-80 rounded-lg py-2 my-10 bg-orange-500"
         >
           <Text className="flex items-center justify-center text-white text-xl font-bold">
