@@ -79,7 +79,7 @@ export default function Cadastro({ navigation }) {
 
   return (
     <ImageBackground
-      source={require("../../assets/wppcaju2.jpg")}
+      source={require("../../assets/shadow.jpg")}
       className="flex  h-full "
     >
       <KeyboardAvoidingView

@@ -30,9 +30,7 @@ export default function Login({ navigation }) {
   };
 
   const Senha = () => {
-    navigation.reset({
-      routes: [{ name: "Senha" }],
-    });
+    navigation.navigate("Senha");
   };
 
   const LoginAPP = async () => {
@@ -67,9 +65,17 @@ export default function Login({ navigation }) {
 
     if (email !== correctEmail) {
       setErrorEmail("Email incorreto");
-    } else if (password !== correctPassword) {
+    } else {
+      setErrorEmail("");
+    }
+
+    if (password !== correctPassword) {
       setErrorPassword("Senha incorreta");
     } else {
+      setErrorPassword("");
+    }
+
+    if (email === correctEmail && password === correctPassword) {
       navigation.reset({
         routes: [{ name: "Principal" }],
       });

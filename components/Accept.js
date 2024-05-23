@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import USCS from "../assets/uscs.png";
 import PIX from "../assets/pix.png";
 
-export default function Accept({ cart, setcart, route }) {
+export default function Accept({ cart, setCart, route }) {
   const { numero, formattedDateTime } = route.params;
   const Navigation = useNavigation();
 
@@ -33,6 +33,10 @@ export default function Accept({ cart, setcart, route }) {
     fetchPedidos();
   }, []);
 
+  const voltar = () => {
+    Navigation.goBack();
+    setCart([]);
+  };
   const sumPrice = (arr) => {
     let soma = 0;
 
@@ -52,7 +56,7 @@ export default function Accept({ cart, setcart, route }) {
       <View className="relative">
         <TouchableOpacity
           className=" rounded-full absolute mt-11 ml-5 p-2  drop-shadow-xl"
-          onPress={() => Navigation.goBack()}
+          onPress={voltar}
         >
           <AntDesign name="down" size={25} className=""></AntDesign>
         </TouchableOpacity>

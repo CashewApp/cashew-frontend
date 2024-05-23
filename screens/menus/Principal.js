@@ -1,30 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import {
   Text,
   View,
-  ImageBackground,
   TouchableOpacity,
-  TextInput,
   ScrollView,
   Image,
   SafeAreaView,
   StyleSheet,
+  RefreshControl,
 } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
-import {
-  Categorias,
-  destaque,
-  Cantinas,
-  bancod,
-  produto,
-} from "../../constants";
+import { Categorias, destaque, produto } from "../../constants";
 import { useState } from "react";
 
 export default function Principal({ navigation }) {
   const [produtoDestaque, setProdutoDestaque] = useState(produto);
   const [produtoList, setProdutoList] = useState(produto);
-  const [categoria, setCategoria] = useState("salgados");
+  const [categoria, setCategoria] = useState("todos");
   const setCategoriaFilter = (status) => {
     if (status !== "Salgados") {
       setProdutoList([...produto.filter((e) => e.status === status)]);
@@ -41,19 +34,27 @@ export default function Principal({ navigation }) {
     setProdutoDestaque(destacados);
     setProdutoList(todos);
 
-    setCategoriaFilter("salgados");
+    //setCategoriaFilter("salgados");
   }, []);
 
-  const [cantinas, setCantinas] = useState("Cantina 1");
-  const [cantinaList, setCantinaList] = useState(bancod);
-  const setCantinaFilter = (cantina) => {
-    if (cantina !== "Cantina 1") {
-      setCantinaList([...bancod.filter((e) => e.cantina === cantina)]);
-    } else {
-      setCantinaList(bancod);
-    }
-    setCantinas(cantina);
-  };
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      const newProduct = {
+        id: 8,
+        name: "Guarana",
+        price: "R$ 6,00",
+        image: require("../../assets/guarana.jpg"),
+        descricao: "guarana antartida 350ml",
+        status: "bebidas",
+        destaque: false,
+      };
+      setProdutoList([...produto, newProduct]);
+
+      setRefreshing(false);
+    }, 1000);
+  }, [produto]);
 
   const renderItems = ({ item }) => {
     return (
@@ -73,7 +74,7 @@ export default function Principal({ navigation }) {
         >
           <View className="rounded-xl bg-white shadow shadow-black/50 ">
             <Image
-              className="flex h-36 w-48 rounded-t-xl"
+              className="flex h-36 w-56 rounded-t-xl"
               source={item.image}
             ></Image>
             <Text className="p-2 text-xl font-bold">{item.name}</Text>
@@ -119,31 +120,7 @@ export default function Principal({ navigation }) {
 
   return (
     <View className="flex h-full bg-white">
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        className=" mt-10 mb-2"
-      >
-        <View className="flex-row justify-start self-start gap-x-3 px-5">
-          {Cantinas.map((e) => (
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => setCantinaFilter(e.cantina)}
-              className="flex justify-center shadow shadow-black/25 bg-white rounded-full mt-2"
-              style={[style.Boff, cantinas === e.cantina && style.Bon]}
-            >
-              <Text
-                className="px-2 py-0.5 font-medium"
-                style={[style.Toff, cantinas === e.cantina && style.Ton]}
-              >
-                {e.cantina}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </ScrollView>
-
-      <View className="flex justify-center items-start  ">
+      <View className="flex justify-center items-start mt-20 ">
         <Text className="text-3xl font-bold pl-5">Mais vendidos</Text>
       </View>
 
@@ -187,6 +164,9 @@ export default function Principal({ navigation }) {
             data={produtoList}
             keyExtractor={(item) => item.id.toString()}
             renderItem={renderItem}
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
           />
         </SafeAreaView>
       </View>

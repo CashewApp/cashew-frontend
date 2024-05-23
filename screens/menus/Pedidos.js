@@ -53,6 +53,7 @@ export default function Pedidos({}) {
     const intervalId = setInterval(fetchPedidos, 1000);
     return () => clearInterval(intervalId);
   }, []);
+
   return (
     <View className="flex bg-white h-full">
       <Text className=" font-bold text-3xl w-full pl-5 mt-20 mb-2">
@@ -61,12 +62,10 @@ export default function Pedidos({}) {
       <ScrollView>
         <View className="mt-2 ">
           {pedidosAgrupados.map((grupo, index) => (
-            <View className="m-5 p-5 rounded-md bg-white shadow-md shadow-black/50">
+            <View className="m-5 p-5 pb-0 rounded-md bg-white shadow-md shadow-black/50">
               <View className="flex flex-row items-center justify-between">
                 <View>
-                  <Text className="font-semibold text-lg">
-                    Cantina - 2 USCS
-                  </Text>
+                  <Text className="font-semibold text-lg">Cantina - USCS</Text>
                 </View>
                 <View>
                   <Image
@@ -77,7 +76,7 @@ export default function Pedidos({}) {
               </View>
               <View key={index} className="w-full  p-3">
                 <View className="flex justify-around">
-                  <View className="flex flex-col justify-center basis-1/5 my- p-3">
+                  <View className="flex flex-col justify-center basis-1/5 border-b border-t border-gray-200 p-3">
                     {grupo.map((pedido) => (
                       <View
                         key={pedido.id}
@@ -96,7 +95,7 @@ export default function Pedidos({}) {
                     className="flex flex-col justify-center basis-1/5 my- p-3"
                   >
                     <Text className="font-medium ">
-                      A retirar - N° {grupo[0].numeroAleatorio}
+                      N° do pedido - {grupo[0].numeroAleatorio}
                     </Text>
                   </View>
                 </View>
